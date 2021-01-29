@@ -2,32 +2,44 @@
 
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
-  <body>
+    <body>
 
-    <h2>Owners</h2>
+        <div  class="container-fluid" style="margin-bottom: -20px; margin-top: 20px;">
+            <div class="row">
+                <div class="col-8"> 
+                    <h2 class="h2">Owners</h2>
+                </div>
+                <div class="col-4">
+                    <img class="col-8" src="../static/resources/images/decoration_cat_dog.png" th:src="@{/resources/images/decoration_cat_dog.png}" style="width: 200px;"/>
+                </div>
+            </div>
 
-    <table id="vets" class="table table-striped">
-        <thead>
-        <tr>
-            <th style="width: 150px;">Name</th>
-            <th style="width: 200px;">Address</th>
-            <th>City</th>
-            <th style="width: 120px">Telephone</th>
-            <th>Pets</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr th:each="owner : ${selections}">
-              <td>
-                  <a th:href="@{/owners/__${owner.id}__}" th:text="${owner.firstName + ' ' + owner.lastName}"/></a>
-              </td>
-              <td th:text="${owner.address}"/>
-              <td th:text="${owner.city}"/>
-              <td th:text="${owner.telephone}"/>
-              <td><span th:each="pet : ${owner.pets}" th:text="${pet.name} "/></td>
-          </tr>
-        </tbody>
-    </table>
+        </div>
+        <div class="row" style="margin-top: -20px; margin-left: 7%; margin-right: 7%">
+            <table id="vets" class="table table-striped table-hover  text-left">
+                <thead>
+                    <tr>
+                        <th style="width: 150px;">Name</th>
+                        <th style="width: 200px;">Address</th>
+                        <th>City</th>
+                        <th style="width: 120px">Telephone</th>
+                        <th>Pets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="owner : ${selections}">
+                        <td>
+                            <a th:href="@{/owners/__${owner.id}__}" th:text="${owner.firstName + ' ' + owner.lastName}"/></a>
+                        </td>
+                        <td th:text="${owner.address}"/>
+                        <td th:text="${owner.city}"/>
+                        <td th:text="${owner.telephone}"/>
+                        <td><span th:each="pet : ${owner.pets}" th:text="${pet.name} "/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-  </body>
+
+    </body>
 </html>
