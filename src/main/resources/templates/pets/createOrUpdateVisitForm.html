@@ -2,8 +2,9 @@
       th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
+                <div class=""></div>
                 <div class="col-12">
                     <h2 class="h2">
                         <th:block th:if="${visit['new']}">New </th:block>
@@ -13,7 +14,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12" style=" padding-left: 15%; padding-right: 15%;">
+                 <div class="col-md-1 col-sm-12"></div>
+                <div class="col-md-10 col-sm-12">
                     <h3 class="h3">Pet information</h3>
                     <table class="table table-striped">
                         <thead>
@@ -46,10 +48,10 @@
                         </div>
                     </form>
                 </div>
-
+                <div class=""></div>
             </div>
             <div class="row">
-                <div class="col-8">
+                <div class="col-md-8">
                     <h3 class="h3">Previous Visits</h3>
                     <br>
                     <table class="table table-striped">
@@ -63,8 +65,9 @@
                         </tr>
                     </table>
                 </div>
-                <div class="col-4">
-                    <img class="col-8" src="../static/resources/images/veterinario.png" th:src="@{/resources/images/veterinario.png}"/>
+                <div class="col-md-4 col-sm-12">
+
+                    <img class="col-md-8 col-sm-12" src="../static/resources/images/veterinario.png" th:src="@{/resources/images/veterinario.png}"/>
                     <br />
                 </div>
             </div>

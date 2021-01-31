@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'error')}">
+<html xmlns:th="http://www.thymel   eaf.org" th:replace="~{fragments/layout :: layout (~{::body},'error')}">
 
   <body>
-    <img src="../static/resources/images/sad_cat.png" th:src="@{/resources/images/sad_cat.png}"/>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-4 col-md-3 col-sm-12"></div>
+              <img class="col-lg-4 col-md-6 col-sm-12" src="../static/resources/images/sad_cat.png" th:src="@{/resources/images/sad_cat.png}" height="50%"/>
+          </div>
+          
+          
     <h2>Something happened...</h2>
     <p th:text="${message}">Exception message</p>
+      </div>
+     
   </body>
 
 </html>
