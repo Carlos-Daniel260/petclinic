@@ -20,17 +20,22 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <link rel="stylesheet" th:href="@{/resources/css/petclinicv2.css}"/>
         
-       
         </head>
 
-    <body >
+        <body background="../static/resources/images/dog.png" >
         
-        <nav class="navbar navbar-expand-md navbar-light bg-light " role="navigation">
-            <img src="../../static/resources/images/pets_0.png" th:src="@{/resources/images/pets_0.png}" width="30" height="30" class="d-inline-block " alt="">
-            <a class="navbar-brand" href="#">PetCare</a>
-           
-            <div class="" >                  
-                <ul class="navbar-nav text-center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light " role="navigation">
+            
+            <a class="navbar-brand" href="#">
+                 <img src="../../static/resources/images/pets_0.png" th:src="@{/resources/images/pets_0.png}" width="30" height="30" class="d-inline-block " alt="">
+                PetCare</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent">                  
+                <ul class="navbar-nav">
 
                     <li th:fragment="menuItem (path,active,title,glyph,text)" class="nav-item active" th:class="${active==menu ? 'active' : ''}">
                         <a th:href="@{__${path}__}" th:title="${title}">
@@ -54,7 +59,7 @@
                         <span>Veterinarians</span>
                     </li>
 
-                    <li class="nav-item"  th:replace="::menuItem ('/about','about','about','th-list','About')">
+                    <li class="nav-item"  th:replace="::menuItem ('/about','about','about','info-sign','About')">
                         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                         <span>About</span>
                     </li>
@@ -64,22 +69,24 @@
                         <span>Error</span>
                     </li> 
 
-
+                     
                 </ul>
-                <th:block th:if="${owner}">
-                 <form class="form-inline" th:object="${owner}" th:action="@{/owners}" method="get" id="search-owner-form" >
-                    <input id="lastName" class="form-control" th:field="*{lastName}" size="30"
-                           maxlength="80" 
-                       placeholder="Seach owners by last name" aria-label="Seach owners by last name"/>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                <th:block th:if="${owner}" class="form-inline row" >
+                    <form class="form-inline" th:object="${owner}" th:action="@{/owners}" method="get" id="search-owner-form" >
+                        <input id="lastName" class="form-control rounded-lg border-success col-10" th:field="*{lastName}" size="30"
+                           maxlength="80" placeholder="Seach owners by last name" aria-label="Seach owners by last name"/>
+                    <button class="btn btn-outline-succes col-2" type="submit">
                         <a class="glyphicon glyphicon-search"></a>
                     </button>
                 </form>  
-                </th:block>                           
+                </th:block>
+                                  
             </div>
+         
+               
         </nav>
         <div>
-            <div class="container text-center">
+            <div class="container-fluid text-center" >
 
                 <th:block th:include="${template}"/>
               
